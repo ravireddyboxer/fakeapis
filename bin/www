@@ -4,6 +4,7 @@
  * Module dependencies.
  */
 require("dotenv").config();
+require("../database/createDatabaseClient");
 var app = require("../app");
 var debug = require("debug")("fakeapis:server");
 var http = require("http");
