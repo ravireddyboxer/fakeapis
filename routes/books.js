@@ -1,22 +1,33 @@
 var express = require("express");
 var router = express.Router();
+var booksRepo = require("../repositories/booksRepository");
 
 /**
- *   get book by id
+ * Get all books
+ */
+router.get("/", function (request, response) {
+  booksRepo
+    .getAllBooks()
+    .then((data) => {
+      console.log(data);
+      response.send(data);
+    })
+    .catch((error) => console.log(error));
+});
+
+/**
+ * Get book by id
  */
 router.get("/:id", function (request, response) {
   let bookId = request.params.id;
-  let book = {
-    id: bookId,
-    title: "Atomic Habits",
-    genre: "Life Style",
-    language: "English",
-    pageCount: 345,
-    publisher: "Oreily",
-    rating: 8.5,
-  };
 
-  response.send(book);
+  booksRepo
+    .getBookById(bookId)
+    .then((data) => {
+      console.log(data);
+      response.send(data);
+    })
+    .catch((error) => console.log(error));
 });
 
 module.exports = router;
