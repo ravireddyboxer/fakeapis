@@ -11,4 +11,8 @@ function getAllBooks() {
   return booksCollection.find().toArray();
 }
 
-module.exports = { getBookById, getAllBooks };
+function insertBook(book) {
+  const booksCollection = database.collection("books");
+  return booksCollection.insertOne(book);
+}
+module.exports = { getBookById, getAllBooks, insertBook };

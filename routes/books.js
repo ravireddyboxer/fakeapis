@@ -35,7 +35,14 @@ router.get("/:id", function (request, response) {
 router.post("/", createBookValidationRules, validator, function (req, res) {
   let book = matchedData(req, { locations: ["body"] });
   book.clientIpAddress = req.clientIp;
-  return res.send(book);
+  booksRepo
+    .insertBook(book)
+    .then((data) => {
+      res.status(200).send({ success: true });
+    })
+    .catch((error) => {
+      res.status(500).send({ success: false });
+    });
 });
 
 module.exports = router;

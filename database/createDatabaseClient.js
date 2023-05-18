@@ -7,6 +7,5 @@ try {
 } catch (error) {
   console.log(error);
 }
-console.log("connection status");
 
 module.exports = client;
