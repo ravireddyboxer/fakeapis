@@ -33,8 +33,9 @@ router.get("/:id", function (request, response) {
 
 /** Create a book  */
 router.post("/", createBookValidationRules, validator, function (req, res) {
-  let input = matchedData(req, { locations: ["body"] });
-  return res.send(input);
+  let book = matchedData(req, { locations: ["body"] });
+  book.clientIpAddress = req.clientIp;
+  return res.send(book);
 });
 
 module.exports = router;
