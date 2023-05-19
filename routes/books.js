@@ -1,35 +1,55 @@
 var express = require("express");
 var router = express.Router();
+
 var booksRepo = require("../repositories/booksRepository");
 var { validator } = require("../validators/validator");
 var {
   createBookValidationRules,
 } = require("../validators/bookValidationRules");
-const { matchedData } = require("express-validator");
+const { matchedData, param } = require("express-validator");
+const booksStaticList = require("../database/staticData.json");
 
 /** Get all books */
 router.get("/", function (request, response) {
   booksRepo
-    .getAllBooks()
-    .then((data) => {
-      console.log(data);
-      response.send(data);
+    .getBooksByIp(request.clientIp)
+    .then((existingRecords) => {
+      if (existingRecords.length === 0) {
+        response.send(booksStaticList);
+        booksStaticList.forEach((book) => {
+          book.clientIpAddress = request.clientIp;
+          book.createdAt = new Date();
+        });
+        booksRepo
+          .insertManyBooks(booksStaticList)
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((error) => console.log(error));
+      } else {
+        response.send(existingRecords);
+      }
     })
     .catch((error) => console.log(error));
 });
 
 /** Get book by id */
-router.get("/:id", function (request, response) {
-  let bookId = request.params.id;
+router.get(
+  "/:id",
+  param("id").isInt(),
+  validator,
+  function (request, response) {
+    let bookId = parseInt(request.params.id);
 
-  booksRepo
-    .getBookById(bookId)
-    .then((data) => {
-      console.log(data);
-      response.send(data);
-    })
-    .catch((error) => console.log(error));
-});
+    booksRepo
+      .getBookById(bookId, request.clientIp)
+      .then((data) => {
+        console.log(data);
+        response.send(data);
+      })
+      .catch((error) => console.log(error));
+  }
+);
 
 /** Create a book  */
 router.post("/", createBookValidationRules, validator, function (req, res) {

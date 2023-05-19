@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Clean Code: A Handbook of Agile Software Craftsmanship",
+    "author": "Robert C. Martin",
+    "genre": "Software Development",
+    "publicationYear": 2008,
+    "rating": 5
+  },
+  {
+    "id": 2,
+    "title": "The Pragmatic Programmer: Your Journey to Mastery",
+    "author": "Andrew Hunt, David Thomas",
+    "genre": "Software Engineering",
+    "publicationYear": 1999,
+    "rating": 5
+  },
+  {
+    "id": 3,
+    "title": "Design Patterns: Elements of Reusable Object-Oriented Software",
+    "author": "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides",
+    "genre": "Software Design",
+    "publicationYear": 1994,
+    "rating": 4
+  },
+  {
+    "id": 4,
+    "title": "Code Complete: A Practical Handbook of Software Construction",
+    "author": "Steve McConnell",
+    "genre": "Software Development",
+    "publicationYear": 1993,
+    "rating": 4
+  },
+  {
+    "id": 5,
+    "title": "Effective Java",
+    "author": "Joshua Bloch",
+    "genre": "Java Programming",
+    "publicationYear": 2001,
+    "rating": 5
+  },
+  {
+    "id": 6,
+    "title": "Introduction to the Theory of Computation",
+    "author": "Michael Sipser",
+    "genre": "Computer Science",
+    "publicationYear": 1997,
+    "rating": 4
+  },
+  {
+    "id": 7,
+    "title": "Refactoring: Improving the Design of Existing Code",
+    "author": "Martin Fowler",
+    "genre": "Software Design",
+    "publicationYear": 1999,
+    "rating": 4
+  },
+  {
+    "id": 8,
+    "title": "Head First Design Patterns",
+    "author": "Eric Freeman, Elisabeth Robson, Bert Bates, Kathy Sierra",
+    "genre": "Software Design",
+    "publicationYear": 2004,
+    "rating": 4
+  },
+  {
+    "id": 9,
+    "title": "The C Programming Language",
+    "author": "Brian W. Kernighan, Dennis M. Ritchie",
+    "genre": "C Programming",
+    "publicationYear": 1978,
+    "rating": 5
+  },
+  {
+    "id": 10,
+    "title": "Clean Architecture: A Craftsman's Guide to Software Structure and Design",
+    "author": "Robert C. Martin",
+    "genre": "Software Architecture",
+    "publicationYear": 2017,
+    "rating": 5
+  }
+]
